@@ -454,7 +454,103 @@ git revert commitID
 Creates a new commit that undoes all of the changes made in commitID, then apply it to the current branch.
 
 
+## Basic Flow of Git in Project
 
+### 1. Create a new repository
+
+```
+git init
+```
+Creates a new local repository with the specified name in the current directory.
+
+### 2. Create a new file
+
+```
+touch fileName
+```
+Creates a new file named fileName.
+
+### 3. Add the file to the staging area
+
+```
+git add fileName
+```
+Adds the fileName file to the staging area and prepares it for versioning.
+
+### 4. Commit the file
+
+```
+git commit -m "Commit message"
+```
+Save the staged snapshot to the project history.
+
+### 5. Add a remote repository
+
+```
+git remote add origin remoteRepositoryURL
+```
+Adds a remote repository named origin at the specified URL.
+
+### 6. Push the changes to the remote repository
+
+```
+git push -u origin master
+```
+Pushes the changes in the local repository up to the remote repository.
+
+### 7. Pull the changes from the remote repository
+
+```
+git pull origin master
+```
+Fetches and merges changes on the remote server to your working directory.
+
+
+## Points to Remember
+
+Q. Differentiate & Demonstrate b/w git reset Hard, soft & mixed?
+A. git reset --hard commitID
+   Discards all history and changes back to the specified commitID and deletes all the uncommitted changes.
+
+   git reset --soft commitID
+   Undoes the commit and leave all your changed files "Changes to be committed", as git status would put it.
+
+   git reset --mixed commitID
+   Undoes the commit and unstage all your changed files, so that git status would report nothing.
+
+Q. how to reset the commit and force push it?
+A. First, get the commit ID using git log command.
+```
+git log
+```
+Then, reset the commit using git reset command.
+```
+git reset --hard commitID
+```
+Then, do some changes in the code and commit it again.
+```
+git commit -am "Commit message"
+```
+Finally, force push the commit using git push command.
+```
+git push -f origin branchName
+```
+
+if you want to reset the commit and force push it in the master branch, then you can use the following command.
+```
+git push -f origin master
+```
+Here is the complete example.
+```
+git log
+git reset --hard 0d1d7fc32
+git commit -am "Commit message"
+git push -f origin master
+```
+Here -f stands for force push. if -f is not used, then you will get the following error.
+```
+error: failed to push some refs to '
+```
 
 
 
