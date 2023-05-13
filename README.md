@@ -176,53 +176,104 @@ Displays the last 10 lines of fileName and monitors fileName for any changes.
 
 ### 1. General Commands
 
-#### 1.1. git --version
+```
+git --version
+```
 Displays the current version of Git.
 
-#### 1.2. git config --global user.name "Your Name"
+```
+git config --global user.name "Your Name"
+```
 Sets the name you want attached to your commit transactions.
 
-#### 1.3. git config --global user.email "youremail@domain"
+```
+git config --global user.email "youremail@domain"
+```
 Sets the email you want attached to your commit transactions.
 
-#### 1.4. git config --global color.ui auto
+```
+git config --global color.ui auto
+```
 Enables helpful colorization of command line output.
 
-#### 1.5. git config --list
+```
+git config --list
+```
 Lists all the configuration settings you’ve ever specified.
 
-#### 1.6. git help command
+```
+git help command
+```
 Displays the manual for command.
 
-#### 1.7. git command --help
+```
+git command --help
+```
 Displays the manual for command.
 
-#### 1.8. git command -h
+```
+git command -h
+```
 Displays the manual for command.
 
 ### 2. Creating repositories
 
-#### 2.1. git init
+```
+git init
+```
+output
+```
+Initialized empty Git repository in /home/user/Desktop/.git/
+```
 Creates a new local repository with the specified name.
 
-#### 2.2. git clone
-Downloads a project and its entire version history.
+```
+git clone
+```
+Downloads a project and its entire version history from a remote repository.
 
 ### 3. Making changes
 
-#### 3.1. git status
-Lists all new or modified files to be committed.
+```
+git status
+```
+outputs
+```
+On branch master
+nothing to commit, working tree clean
+```
+Lists all new or modified files to be committed in the current repository and also lists all the files that are not yet staged.
 
-#### 3.2. git diff
+```
+git diff
+```
+outputs
+```
+diff --git a/fileName b/fileName
+index 0123456..789abcde 100644
+--- a/fileName
++++ b/fileName
+@@ -1 +1,2 @@
+-Hello World
++Hello World!
++Goodbye ...
+```
 Shows file differences not yet staged.
 
-#### 3.3. git add .
+```
+git add .
+```
+
 Snapshots all the files in preparation for versioning and adds them to the staging area.
 
-#### 3.4. git add fileName
+```
+git add fileName
+```
 Snapshots the file in preparation for versioning and adds it to the staging area.
 
-#### 3.5. git add fileName1 fileName2 fileName3
+```
+git add fileName1 fileName2 fileName3
+```
 Snapshots the files in preparation for versioning and adds them to the staging area.
 
 ### 4. Committing changes
