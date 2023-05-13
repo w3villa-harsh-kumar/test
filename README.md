@@ -1,5 +1,4 @@
 ## Basic Commands of Linux and Mac
-==================================
 
 ### 1. General Commands
 
