@@ -540,15 +540,14 @@ Then, do some changes in the code and commit it again.
 git commit -am "Commit message"
 ```
 Here is the image of the output.  
-![Uploading image.png…]()
-
+![image](https://drive.google.com/uc?id=127fIN58IhXgytT6Z7YVmjgwtInvcUi-K)
 
 Finally, force push the commit using git push command.
 ```
 git push origin branchName -f
 ```
 Here is the image of the output.
-
+![image](https://drive.google.com/uc?id=1XmrljmUPJyywMjHfmj5MCGAyrFFs1y9l)
 
 ***Note***
 You can also use:
