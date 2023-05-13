@@ -525,17 +525,39 @@ A. First, get the commit ID using git log command.
 ```
 git log
 ```
+Here is the image of the output.
+![image](https://github.com/w3villa-harsh-kumar/test/assets/124652104/7ff92b35-e881-4cfd-8039-ab9d5f5a3503)
+
 Then, reset the commit using git reset command.
 ```
-git reset --hard commitID
+git reset commitID
 ```
+Here is the image of the output.
+![image](https://github.com/w3villa-harsh-kumar/test/assets/124652104/fb2943fd-0d25-483a-a3cd-04cfa5727025)
+
 Then, do some changes in the code and commit it again.
 ```
 git commit -am "Commit message"
 ```
+Here is the image of the output.  
+![Uploading image.png…]()
+
+
 Finally, force push the commit using git push command.
 ```
-git push -f origin branchName
+git push origin branchName -f
+```
+Here is the image of the output.
+
+
+***Note***
+You can also use:
+```
+git push -f origin master
+```
+instead of 
+```
+git push origin branchName -f
 ```
 
 if you want to reset the commit and force push it in the master branch, then you can use the following command.
