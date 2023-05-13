@@ -2,112 +2,174 @@
 
 ### 1. General Commands
 
-#### 1.1. pwd
+```
+pwd
+```
 Prints the current working directory.
 
-#### 1.2. clear
+```
+clear
+```
 Clears the terminal screen.
 
 
 ### 2. Listing files and directories
 
-#### 2.1. ls
+```
+ls
+```
 Lists the files and directories in the current working directory.
 
-#### 2.2. ls -a
+```
+ls -l
+```
 Lists all the files and directories including the hidden files and directories.
 
-#### 2.3. ls folderName
+```
+ls -a
+```
 Lists the files and directories in the folderName directory.
 
 ### 3. Navigation
 
-#### 3.1. cd folderName
+```
+cd folderName
+```
 Changes the current working directory to folderName.
 
-#### 3.2. cd ..
+```
+cd ..
+```
 Changes the current working directory to the parent directory.
 
-#### 3.3. cd ~
+```
+cd ~
+```
 Changes the current working directory to the home directory.
 
-#### 3.4. cd -
+```
+cd -
+```
 Changes the current working directory to the previous working directory.
 
-#### 3.5. cd path # e.g. cd /home/user/Desktop
+```
+cd path # e.g. cd /home/user/Desktop
+```
 Changes the current working directory to the path directory.
 
 ### 4. Creating files and directories
 
-#### 4.1. mkdir folderName
+```
+mkdir folderName
+```
 Creates a new directory named folderName.
 
-#### 4.2. touch fileName
+```
+touch fileName
+```
 Creates a new file named fileName.
 
-#### 4.3. touch fileName1 fileName2 fileName3
+```
+touch fileName1 fileName2 fileName3
+```
 Creates three new files named fileName1, fileName2, and fileName3.
 
-#### 4.4. touch fileName.{html,css,js}
+```
+touch fileName.{html,css,js}
+```
 Creates three new files named fileName.html, fileName.css, and fileName.js.
 
 ### 5. Copying files and directories
 
-#### 5.1. cp fileName1 fileName2
+```
+cp fileName1 fileName2
+```
 Copies the contents of fileName1 to fileName2.
 
-#### 5.2. cp -r folderName1 folderName2
+```
+cp -r folderName1 folderName2
+```
 Copies the contents of folderName1 to folderName2.
 
 ### 6. Moving files and directories
 
-#### 6.1. mv fileName1 fileName2
+```
+mv fileName1 fileName2
+```
 Moves the contents of fileName1 to fileName2.
 
-#### 6.2. mv folderName1 folderName2
+```
+mv folderName1 folderName2
+```
 Moves the contents of folderName1 to folderName2.
 
 ### 7. Removing files and directories
 
-#### 7.1. rm fileName
+```
+rm fileName
+```
 Removes the fileName file if it exists.
 
-#### 7.2. rm -r folderName
+```
+rm -r folderName
+```
 Removes the folderName directory and its contents recursively.
 
-#### 7.3. rm -f fileName
+```
+rm -f fileName
+```
 Removes the fileName file without prompting for confirmation.
 
-#### 7.4. rm -rf folderName
+```
+rm -rf folderName
+```
 Removes the folderName directory without prompting for confirmation recursively.
 
-#### 7.5. rm -rf folderName1 folderName2
+```
+rm -rf folderName1 folderName2
+```
 Removes the folderName1 and folderName2 directories without prompting for confirmation recursively.
 
-#### 7.6. rmdir folderName
+```
+rmdir folderName
+```
 Removes the folderName directory if it is empty.
 
 ### 8. Viewing files
 
-#### 8.1. cat fileName
+```
+cat fileName
+```
 Displays the contents of fileName.
 
-#### 8.2. less fileName
+```
+less fileName
+```
 Displays the contents of fileName one page at a time.
 
-#### 8.3. head fileName
+```
+head fileName
+```
 Displays the first 10 lines of fileName.
 
-#### 8.4. head -n 5 fileName
+```
+head -n 5 fileName
+```
 Displays the first 5 lines of fileName.
 
-#### 8.5. tail fileName
+```
+tail fileName
+```
 Displays the last 10 lines of fileName.
 
-#### 8.6. tail -n 5 fileName
+```
+tail -n 5 fileName
+```
 Displays the last 5 lines of fileName.
 
-#### 8.7. tail -f fileName
+```
+tail -f fileName
+```
 Displays the last 10 lines of fileName and monitors fileName for any changes.
 
 ## Basic Commands of Git
