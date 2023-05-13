@@ -426,7 +426,7 @@ Undoes all commits after commitID, preserving changes locally.
 ```
 git reset --hard commitID
 ```
-Discards all history and changes back to the specified commitID.
+Discards all history and changes back to the specified commitID and deletes all the uncommitted changes.
 
 ```
 git reset --soft commitID
