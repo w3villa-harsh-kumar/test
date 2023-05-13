@@ -508,7 +508,8 @@ Fetches and merges changes on the remote server to your working directory.
 
 ## Points to Remember
 
-Q. Differentiate & Demonstrate b/w git reset Hard, soft & mixed?
+Q. Differentiate & Demonstrate b/w git reset Hard, soft & mixed? 
+
 A. git reset --hard commitID
    Discards all history and changes back to the specified commitID and deletes all the uncommitted changes.
 
@@ -519,6 +520,7 @@ A. git reset --hard commitID
    Undoes the commit and unstage all your changed files, so that git status would report nothing.
 
 Q. how to reset the commit and force push it?
+
 A. First, get the commit ID using git log command.
 ```
 git log
