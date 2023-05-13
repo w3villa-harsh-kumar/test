@@ -221,11 +221,12 @@ Displays the manual for command.
 ```
 git init
 ```
-output
+Creates a new local repository with the specified name in the current directory. 
+
+Output:
 ```
 Initialized empty Git repository in /home/user/Desktop/.git/
 ```
-Creates a new local repository with the specified name.
 
 ```
 git clone
@@ -237,17 +238,25 @@ Downloads a project and its entire version history from a remote repository.
 ```
 git status
 ```
-outputs
+Lists all new or modified files to be committed in the current repository and also lists all the files that are not yet staged.
+git status provides a summary of the state of both the working directory and the staging area.
+1. Provides the branch name.
+2. Lists all the files that are not yet staged. **(Untracked files)**
+3. Lists all the files that are staged. **(Changes to be committed)**
+
+
+Outputs
 ```
 On branch master
 nothing to commit, working tree clean
 ```
-Lists all new or modified files to be committed in the current repository and also lists all the files that are not yet staged.
 
 ```
 git diff
 ```
-outputs
+Shows file differences not yet staged.
+
+Outputs
 ```
 diff --git a/fileName b/fileName
 index 0123456..789abcde 100644
@@ -258,85 +267,192 @@ index 0123456..789abcde 100644
 +Hello World!
 +Goodbye ...
 ```
-Shows file differences not yet staged.
 
 ```
 git add .
 ```
+Add all the files in the current directory to the staging area and prepares them for versioning.
 
-Snapshots all the files in preparation for versioning and adds them to the staging area.
+Before adding the files to the staging area, the output of git status is:
+```
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   README.md
 
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        anotherTest.html
+```
+
+After adding the files to the staging area, the output of git status is:
+```
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   README.md
+        new file:   anotherTest.html
+```
+    
 ```
 git add fileName
 ```
-Snapshots the file in preparation for versioning and adds it to the staging area.
+Adds the fileName file to the staging area and prepares it for versioning.
 
 ```
 git add fileName1 fileName2 fileName3
 ```
-Snapshots the files in preparation for versioning and adds them to the staging area.
+Adds the fileName1, fileName2, and fileName3 files to the staging area and prepares them for versioning.
 
 ### 4. Committing changes
 
-#### 4.1. git commit -m "Commit message"
-Records file snapshots permanently in version history.
+```
+git commit -m "Commit message"
+```
+Save the staged snapshot to the project history.
 
-#### 4.2. git commit -am "Commit message"
-Snapshots all the files in preparation for versioning and records file snapshots permanently in version history.
+Before committing the files, the output of git status is:
+```
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   README.md
+        new file:   anotherTest.html
+```
+
+After committing the files, the output of git status is:
+```
+On branch master
+nothing to commit, working tree clean
+```
+
+```
+git commit -am "Commit message"
+```
+Stage all modified files and commit them to the repository in one command. The -a option is a shortcut that tells Git to automatically stage every file that is already tracked before doing the commit, letting you skip the git add part.
+
+Note: ***The -a option doesn’t tell Git to add new files, so you still need to use git add the first time you want to add a new file.***
 
 ### 5. Branching
 
-#### 5.1. git branch
+```
+git branch
+```
 Lists all the local branches in the current repository.
 
-#### 5.2. git branch branchName
+Output:
+```
+* master
+```
+
+```
+git branch branchName
+```
 Creates a new branch named branchName.
 
-#### 5.3. git checkout branchName or git switch branchName
-Switches to the specified branch and updates the working directory.
+After creating the branch, the output of git branch is:
+```
+* master
+  branchName
+```
 
-#### 5.4. git checkout -b branchName or git switch -c branchName
-Creates a new branch named branchName and switches to it.
+```
+git checkout branchName or git switch branchName
+```
+Switches to the specified branch and updates the working directory. Checkout command is used to switch from one branch to another but it is also used to do the following tasks:
+1. Create a new branch.
+2. Create a new branch and switch to it.
+3. Discard changes in the working directory.
+4. Restore the working directory to match the last commit.
 
-#### 5.5. git branch -d branchName
+so, git switch is introduced in Git 2.23 as a more intuitive alternative to git checkout.
+
+```
+git checkout -b branchName or git switch -c branchName
+```
+Creates a new branch named branchName and switches to it and updates the working directory.
+
+```
+git branch -d branchName
+```
 Deletes the specified branch.
 
-#### 5.6. git merge branchName
+```
+git merge branchName
+```
 Combines the specified branch’s history into the current branch.
 
 ### 6. Updating repositories
 
-#### 6.1. git pull
+```
+git pull
+```
 Fetches and merges changes on the remote server to your working directory.
-
-#### 6.2. git push
+```
+git push remoteName branchName
+```
 Pushes all the modified local objects to the remote repository and advances its branches.
 
 ### 7. Inspecting a repository
 
-#### 7.1. git log
+```
+git log
+```
 Lists version history for the current branch.
 
-#### 7.2. git log --follow fileName
+```
+git log --follow fileName
+```
 Lists version history for a file, including renames.
 
-#### 7.3. git diff branchName1 branchName2
+```
+git diff branchName1 branchName2
+```
 Shows the differences between two branches.
 
-#### 7.4. git show commitID
+```
+git show commitID
+```
 Outputs metadata and content changes of the specified commit.
 
 ### 8. Undoing changes
 
-#### 8.1. git reset commitID
+```
+git reset commitID
+```
 Undoes all commits after commitID, preserving changes locally.
 
-Q. Differentiate & Demonstrate b/w git reset Hard, soft & mixed!
-A. git reset --hard: This command throws away all your uncommitted changes. It resets your working directory to the state it was in right after your last commit. It also resets the index to match it.
+```
+git reset --hard commitID
+```
+Discards all history and changes back to the specified commitID.
 
-git reset --soft: This command resets the HEAD to another commit, so index and the working directory will not be altered in any way.
+```
+git reset --soft commitID
+```
+Undoes the commit and leave all your changed files "Changes to be committed", as git status would put it.
 
-git reset --mixed: This command resets the HEAD and index to another commit, but not the working directory. The changes in the files are preserved but not marked for commit.
+```
+git reset --mixed commitID
+```
+Undoes the commit and unstage all your changed files, so that git status would report nothing.
+
+```
+git reset HEAD fileName
+```
+Unstages the file, but preserve its contents.
+
+```
+git checkout -- fileName
+```
+Discards all changes to the fileName file.
+
+```
+git revert commitID
+```
+Creates a new commit that undoes all of the changes made in commitID, then apply it to the current branch.
+
 
 
 
